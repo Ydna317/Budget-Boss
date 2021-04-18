@@ -1,16 +1,14 @@
-self.addEventListener('install', function (event) {
-  // Perform install steps
-});
-
 var CACHE_NAME = 'my-site-cache-v1';
 var urlsToCache = [
-  "/",
+
+  "/index.html",
   "/index.js",
   "/styles.css",
   "/icons/icon-192x192.png",
   "/icons/icon-512x512.png",
   "/manifest.json",
   "/database.js"
+
 ];
 
 self.addEventListener('install', function (event) {
@@ -70,21 +68,4 @@ self.addEventListener('fetch', function(event) {
         );
       })
     );
-});
-
-self.addEventListener('activate', function(event) {
-
-  var cacheAllowlist = ['pages-cache-v1', 'blog-posts-cache-v1'];
-
-  event.waitUntil(
-    caches.keys().then(function(cacheNames) {
-      return Promise.all(
-        cacheNames.map(function(cacheName) {
-          if (cacheAllowlist.indexOf(cacheName) === -1) {
-            return caches.delete(cacheName);
-          }
-        })
-      );
-    })
-  );
 });
