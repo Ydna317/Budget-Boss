@@ -7,7 +7,10 @@ var urlsToCache = [
   "/",
   "/index.js",
   "/styles.css",
-  "/icons"
+  "/icons/icon-192x192.png",
+  "/icons/icon-512x512.png",
+  "/manifest.json",
+  "/database.js"
 ];
 
 self.addEventListener('install', function (event) {
